@@ -6,7 +6,8 @@ var server = require('http').createServer(function(req, response){
     response.end();
   });
 });
-server.listen(8080);
+var port = process.env.PORT || 3000;
+server.listen(port);
 var nowjs = require("now");
 var everyone = nowjs.initialize(server);
 
