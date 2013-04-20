@@ -1,0 +1,71 @@
+extends layout
+
+block content
+  include leftbar
+    .span9
+      .hero-unit
+        h1= title
+        p Welcome to #{title}
+        p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+          p: a.btn.btn-primary.btn-large Learn more &raquo;
+
+
+    .row-fluid
+      .span4
+        h2 Heading
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+        p: a.btn(href='http://amazon.com') View details &raquo;
+      .span4
+      .span4
+        h2 Server Activity
+        .row-fluid 
+          .span1
+          .span1
+          .span4 
+            p Update every
+          .span4
+            .btn-group(data-toggle='buttons-radio')
+              button.r.btn(value=1) 1s
+              button.r.btn.active(value=2) 2s
+              button.r.btn(value=5)  5s
+        p
+          input#one.dial(value='25',data-width='100')
+          input#two.dial(value='75',data-width='100',data-readOnly='true')
+          input#three.dial(value='50',data-width='100')
+        script
+          function poll() {
+              $.get('usage', function(data) { 
+                $('#one').val(data.one);
+                $('#two').val(data.two); 
+                $('#three').val(data.three); 
+                $('.dial').trigger('change');
+              }, 'json');
+          }
+          $(document).ready(function() {
+            $('.nav-tabs').button();
+            $('.dial').knob();
+            usage = setInterval(poll, 2000);
+          });
+          $('.r').click(function() {
+            clearInterval(usage);
+            usage = setInterval(poll, $(this).val() * 1000);
+          });
+    .row-fluid
+      .span4
+        h2 Heading
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+        p: a.btn(href='http://google.com') View details &raquo;
+      .span4
+        h2 Heading
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+        p: a.btn(href='#') View details &raquo;
+      .span4
+        h2 Powered by
+        ul
+           li AWS
+           li Node.JS
+           li Express.JS
+           li LESS CSS
+           li Jade
+           li JQuery
+           li JQuery Knob

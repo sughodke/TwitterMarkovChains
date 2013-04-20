@@ -1,0 +1,48 @@
+doctype 5
+html
+  head
+    title Checkout Express!
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    style(type='text/css')
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    link(rel='stylesheet', href='/css/bootstrap-responsive.min.css')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap-collapse.js')
+    script(src='/js/bootstrap-button.js')
+    script(src='/js/jquery.knob.js')
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar(data-toggle='collapse',data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          a.brand(href='#') Project #{title}
+
+          .btn-group.pull-right
+            a.btn.dropdown-toggle(data-toggle='dropdown',href='#')
+              i.icon-user
+              | Username
+              span.caret
+            ul.dropdown-menu
+              li Profile
+              li.divider
+              li Sign Out
+
+          .nav-collapse
+            ul.nav
+              li.active: a(href='#') Home
+              li: a(href='#') About
+              li: a(href='#') Contact
+
+    block content
+

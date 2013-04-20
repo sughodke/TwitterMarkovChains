@@ -1,0 +1,67 @@
+extends layout
+
+block content
+  .container
+    .hero-unit
+      h1 Twitter Colors
+      - for (var j = 0; j < 5; ++j)
+        .row-fluid
+          - for (var i = 0; i < 10; ++i)
+            .span1 test #{j*10+i}
+    script
+      start = Math.round(Math.random()*10)
+      function poll() {
+        $.get('/color/'+start+'.json', function(data) { 
+          $('.span1').each(function(i) {
+            var value;
+            switch (Math.floor(i/10.0)) {
+              case 0:
+                value = data[i%10].color1;
+                break;
+              case 1:
+                value = data[i%10].color2;
+                break;
+              case 2:
+                value = data[i%10].color3;
+                break;
+              case 3:
+                value = data[i%10].color4;
+                break;
+              case 4:
+                value = data[i%10].color5;
+            }
+            $(this).delay(200).css('background-color', '#'+value);
+            $(this).text(value);
+            //$(this).text(i/10.0+' '+i%10);
+          });
+        },'json');
+        start = start + 1;
+      }
+      $(document).ready(function() {
+        setInterval(poll, 500);
+      });
+    p
+    .row-fluid
+      .span9
+        table.table.table-striped.table-bordered.table-condensed 
+          thead
+            tr
+              th username
+              th color1
+              th color2
+              th color3
+              th color4
+              th color5
+          tbody
+            for doc in docs
+              tr
+                td= doc['username']
+                td(style='background-color:\##{doc['color1']}')= doc['color1']
+                td= doc['color2']
+                td= doc['color3']
+                td= doc['color4']
+                td= doc['color5']
+                td
+                  img(src=doc['img2'])
+        a(href='10') Next
+
