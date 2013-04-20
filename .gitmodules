@@ -1,6 +1,0 @@
-[submodule "tmp"]
-	path = tmp
-	url = /tmp/tmp.git
-[submodule "sinatra-rb-markov-twitter"]
-	path = sinatra-rb-markov-twitter
-	url = /tmp/tmp.git
