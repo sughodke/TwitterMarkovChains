@@ -25,10 +25,11 @@ var sTwitterStore2 = new Schema({
 colorModel = mongoose.model('Color',sTwitterStore2);
 
 var sTwitterStore3 = new Schema({
-    source : ObjectId
-  , word1 : String
-  , word2 : String
-  , word3 : String
+    key1 : String
+  , key2 : String
+  , value : String
+  //, random: Number
+  , random: {type: [Number], index: '2d'}
 });
 chainModel = mongoose.model('Chain',sTwitterStore3);
 
