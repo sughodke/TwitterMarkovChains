@@ -8,7 +8,8 @@ var twit = new twitter({
   access_token_secret: 'grpkPF5qjEBeDs9HCnCRpI712q0vndbyBcTtCEpEoc'
 });
 
-twit.stream('statuses/sample', function(stream) {
+//twit.stream('statuses/sample', function(stream) {
+twit.stream('statuses/filter', {'locations':'-122.75,36.8,-121.75,37.8,-74,40,-73,41'}, function(stream) {
   stream.on('data', function (data) {
     var red, blue, reset;
     red   = '\033[31m';
