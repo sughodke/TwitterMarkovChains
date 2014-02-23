@@ -1,10 +1,14 @@
 {
-  "name": "node-example",
+  "name": "application-name",
   "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
-    "express": "*",
-    "jade": "*",
-    "pg": "*",
-    "ntwitter": "*"
+    "express": "3.4.8",
+    "mongoose": "*",
+    "ntwitter": "*",
+    "jade": "*"
   }
 }
