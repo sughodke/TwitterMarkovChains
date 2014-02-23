@@ -2,6 +2,9 @@
   "name": "node-example",
   "version": "0.0.1",
   "dependencies": {
-    "now": "0.7.5"
+    "express": "*",
+    "jade": "*",
+    "pg": "*",
+    "ntwitter": "*"
   }
 }
