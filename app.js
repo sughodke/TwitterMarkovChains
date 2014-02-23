@@ -25,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
+  //app.set('view options', { pretty: true });
+  app.locals.pretty = true;
   app.use(express.errorHandler());
 }
 

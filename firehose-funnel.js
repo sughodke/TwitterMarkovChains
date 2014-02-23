@@ -39,7 +39,7 @@ TweetEmitter.on('goodTweet', function(tw) {
 });
 
 
-twit.stream('statuses/filter', {'locations':'-122.75,36.8,-121.75,37.8,-74,40,-73,41'}, function(stream) {
+twit.stream('statuses/filter', {'locations':'-122.75,36.8,-121.75,37.8,-74,40,-73,41','track':'RT'}, function(stream) {
   stream.on('data', function (data) {
     var u = data.user.screen_name;
     var n = data.user.name;
@@ -48,11 +48,12 @@ twit.stream('statuses/filter', {'locations':'-122.75,36.8,-121.75,37.8,-74,40,-7
     var t = data.text;
 
     if (l == 'en') 
-      if (t.match(/[a-zA-Z]*/)[0]) {
-        TweetEmitter.emit('greatTweet', {'u': u, 't': t});
+      //if (t.match(/[a-zA-Z]*/)[0]) {
+      if (t.match(/[^\u0000-\u0080]+/)) {
+        TweetEmitter.emit('goodTweet', {'u': u, 't': t});
       }
       else {
-        TweetEmitter.emit('goodTweet', {'u': u, 't': t});
+        TweetEmitter.emit('greatTweet', {'u': u, 't': t});
       }
   });
 });

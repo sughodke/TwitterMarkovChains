@@ -2,6 +2,19 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
+    style(type='text/css').
+      body { 
+        padding-top: 60px; 
+        padding-bottom: 40px; 
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+      }
+    script(src='/javascript/bootstrap.min.js')
+    script(src='/javascript/jquery.min.js')
+    script(src='/javascript/bootstrap-collapse.js')
+    script(src='/javascript/bootstrap-button.js')
+
   body
     block content

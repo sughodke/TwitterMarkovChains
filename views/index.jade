@@ -1,5 +1,46 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .page-header
+      h1= title
+    p.lead
+      | This WebApp generates Tweets using Markov Chains based on real
+      | Tweets from real people.
+    .jumbotron
+      p= tweet
+      p tweet
+    h3 Example
+    .row
+      .col-xs-6
+        p For example, if we have a couple of live tweets from Users A and B:
+        p code User A: Loving this new user interface
+        p code User B: I need a new bag for my laptop!
+      .col-xs-6
+        p the following data will be stored
+        table
+          tr
+            th Key 
+            th Value 1
+            th Value 2
+          tr
+            td Loving
+            td this
+            td new
+          tr
+            td this
+            td new
+            td user
+          tr ...
+          tr
+            td need
+            td a
+            td new
+          tr
+            td a
+            td new
+            td bag
+          
+    //- #footer
+      .container
+        p.text-muted Place sticky footer content here.
